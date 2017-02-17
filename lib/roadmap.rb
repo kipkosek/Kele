@@ -10,4 +10,9 @@ module Roadmap
     @checkpoint = JSON.parse(response.body)
   end
 
+  def get_messages(page)
+    response = self.class.get("https://www.bloc.io/api/v1/message_threads", headers: {"authorization" => @auth_token }, body: page)
+    @message_threads = JSON.parse(response.body)
+  end
+
 end
